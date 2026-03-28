@@ -1,5 +1,6 @@
 import streamlit as st
 import warnings
+import os
 import google.generativeai as genai
 
 warnings.filterwarnings("ignore")
@@ -7,7 +8,7 @@ warnings.filterwarnings("ignore")
 st.title("Talk With Jaadu 🤖")
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyCmdiL9BkKglnkfJwFMAOM-1rEV1PfGxNg")
+genai.configure(api_key=os.getenv("API_KEY"))
 model = genai.GenerativeModel("models/gemini-2.5-flash")
 
 # Initialize session state
